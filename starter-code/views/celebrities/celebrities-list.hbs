@@ -1,14 +1,14 @@
 <main>
-    <h2>DEM ALL:</h2>
+    <h2>All Celebrities:</h2>
     <a href="/celebrities/new">Add New Celebrity</a>
     {{#each celebrities}}
         <div>
             <a href="/celebrities/{{this._id}}"><h3>{{this.name}}</h3></a>
 
-            <a href="/celebrities/{{this._id}}/edit">Editar Celebridade</a>
+            <a href="/celebrities/{{this._id}}/edit">Edit Celebrity</a>
 
             <form action="/celebrities/{{this._id}}/delete" method="post">
-                <button type="submit">Exluir celebridade</button>
+                <button type="submit">Delete Celebrity</button>
             </form>
         </div>
     {{/each}}
