@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-/* const Celebrity = require('../models/Celebrity');
+const Celebrity = require('../models/Celebrity');
 
 const celebs = [
     {
@@ -18,7 +18,7 @@ const celebs = [
         occupation: 'actor',
         catchPhrase: 'Engage!',
     },
-]; */
+];
 
 const Movie = require('../models/Movie');
 
@@ -47,11 +47,14 @@ mongoose
         Movie.insertMany(movies)
             .then((inserted) => {
                 console.log(`Inserted ${inserted.length} movies`);
-                mongoose.connection.close();
+                Celebrity.insertMany(celebs) // Needed to reseed on the notebook
+                    .then((inserted) => {
+                        console.log(`Inserted ${inserted.length} celebrities`);
+                        mongoose.connection.close();
+                    });
             })
             .catch((err) => console.log(err));
     })
     .catch((err) => {
         console.error('Error connecting to mongo', err);
     });
-

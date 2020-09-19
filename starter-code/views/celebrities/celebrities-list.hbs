@@ -1,8 +1,15 @@
 <main>
     <h2>All Celebrities:</h2>
     <a href="/celebrities/new">Add New Celebrity</a>
+    <div>
+        <label for="celebSearch">Search Celebrities</label>
+        <input type="text" name="celebSearch" id="celebSearch" placeholder="Search">
+    </div>
+    <div>
+
+    <div id="celeb">
     {{#each celebrities}}
-        <div>
+        <div class="oneCeleb">
             <a href="/celebrities/{{this._id}}"><h3>{{this.name}}</h3></a>
 
             <a href="/celebrities/{{this._id}}/edit">Edit Celebrity</a>
@@ -12,4 +19,7 @@
             </form>
         </div>
     {{/each}}
+    </div>
 </main>
+
+<script src="/javascripts/script.js"></script>
